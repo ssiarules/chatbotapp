@@ -6,6 +6,8 @@ import List from '@material-ui/core/List';
 import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
+import Chip from '@material-ui/core/Chip';
+
 
 const useStyles = makeStyles((theme => ({
     root: {
@@ -61,14 +63,24 @@ export default function Dashboard(){
                     </list>
                 </div>
                       
-                 <div className={classes.chatWindow}></div>
+                 <div className={classes.chatWindow}>
+                
+                        {
+                            [{from: 'user', msg: 'Hello'}].map((chat, i) => (
+                                 <div className={classes.flex} key={i}>
+                                        <Chip label={chat.from} className={classes.chip} />
+                                 <Typography varient='p'> {chat.msg} </Typography>
+                                 </div>
+                            ))
+                        }
+                 </div>
            
            </div>
            <div className={classes.flex} >
             <div className={classes.chatBox}></div>
            
-           </div>
-        </Paper>
-    </div>
+              </div>
+            </Paper>
+        </div>
   )
 }
