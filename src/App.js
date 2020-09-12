@@ -1,16 +1,20 @@
 import React from 'react';
 import Dashboard from './Dashboard'
-import MessageList from './components/MessageList'
-import SendMessageForm from './components/SendMessageForm'
-import RoomList from './components/RoomList'
-import NewRoomForm from './components/NewRoomForm'
-//import logo from './logo.svg';
 import './App.css';
+import Store from './Store'
+
+//import MessageList from './components/MessageList'
+//import SendMessageForm from './components/SendMessageForm'
+//import RoomList from './components/RoomList'
+//import NewRoomForm from './components/NewRoomForm'
+//import logo from './logo.svg';
 
 function App(){
   return (
     <div className="App">
-    <Dashboard />
+    <Store>
+      <Dashboard />
+    </Store>
     </div>
   );
 }

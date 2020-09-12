@@ -6,7 +6,7 @@ and map it to the shape we expect */
 /* we also want an initial state to make sure everything is working correctly in our layout */ 
 
 //initialize a context object
-const CTX = React.createContext();
+export const CTX = React.createContext();
 
 /* How do we retain our existing state while mapping over a chat that we received
  and re-rendering the page?
@@ -37,8 +37,8 @@ function reducer(state, action) {
        case 'RECEIVE_MESSAGE' :
            return {
                //first spread is bringing forward our entire old state and then
-               ...state 
-               [action.payload.topic ]: [
+               ...state,
+               [topic]: [
                    ...state[topic],
                      { from,  msg}
                ]
@@ -51,7 +51,7 @@ function reducer(state, action) {
 
 export default function Store(props) {
 
-    const reducerHook = React.userReducer(reducer, initialState) //takes two argument reducer function & initial state
+    const reducerHook = React.useReducer(reducer, initialState) //takes two argument reducer function & initial state
 
     //return a context provider with a value that is going to be passed in
     //props.children we define this as a higher-order component 
