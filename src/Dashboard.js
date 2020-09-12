@@ -5,8 +5,9 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-
 import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 
 const useStyles = makeStyles((theme => ({
@@ -40,6 +41,13 @@ const useStyles = makeStyles((theme => ({
 export default function Dashboard(){
 
     const classes = useStyles();
+    
+    /*React Hook: initializing a state to nothing and then we are passing the empty string into
+    //Textvalue which is our initial state and when we want to update we just have to call this function.
+    //so you state is returning a tuple( A single row of a table, which contains a single record for that relation )
+     //first current value and second our update function
+*/
+    const [ textValue, changeTextValue] = React.useState ('');
 
     return (
         <div>
@@ -77,6 +85,17 @@ export default function Dashboard(){
            
            </div>
            <div className={classes.flex} >
+
+                <TextField
+                 label="Send A Chat" 
+                 className={classes.chatBox}
+                 value={textValue}
+                 onChange={e => changeTextValue(e.target.value)}
+               
+                    />       
+               <Button variant="contained" color="primary">
+                SEND
+               </Button>
             <div className={classes.chatBox}></div>
            
               </div>
