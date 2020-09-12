@@ -1,0 +1,15 @@
+
+
+
+https://www.youtube.com/watch?v=hiiaHyhhwBU&t=354s&ab_channel=AaronJack
+
+36:17
+Backend build out 
+Steps
+    1. client connection 
+    2. server listening - Listener on the server that will listen for connections as well emit events from the client
+    3. Emit to client
+    4. Broadcast is server that listens for the event it will receive that event with a key and with some 
+        json data that can than send out to one or more other clients who are listening.
+        When this Broadcast happens all the other clients receive this message, including the one who sent it. (this will be define in your server logic.)
+    5. Client receives message

@@ -1,4 +1,5 @@
 import React from 'react'
+import io from 'socket.io-client'
 
 /* a wrapper/context provider that simple holds all current chats in the state */
 /* we will want a reducer to have a greater control over what's being returned from the server
@@ -48,8 +49,20 @@ function reducer(state, action) {
     }
 }
 
+//initialize the socket we declare a variable called socket outside the functional component.
+//the reason we do it outside the function is because we don't want it to re-render every time the store reloads
+
+ let socket;
+
 
 export default function Store(props) {
+
+    //we are checking first socket if there's no socket socket than we are going to create one with IO function
+    //set it manually to the be port 3001(which we define in our server file)
+//Client Connection 
+    if (!socket) {
+        socket = io('3001')
+    }
 
     const reducerHook = React.useReducer(reducer, initialState) //takes two argument reducer function & initial state
 
