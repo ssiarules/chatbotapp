@@ -65,16 +65,21 @@ function sendChatAction(value){
 
 export default function Store(props) {
 
+const [allChats, dispatch] = React.useReducer(reducer, initialState) //takes two argument reducer function & initial state
+
     //we are checking first socket if there's no socket socket than we are going to create one with IO function
     //set it manually to the be port 3001(which we define in our server file)
 //Client Connection 
     if (!socket) {
-        socket = io(':3001')
+        socket = io(':3001');
+        socket.on('chat message', function(msg){
+            dispatch({type: 'RECEIVE_MESSAGE', payload: msg})
+            console.log({msg})
+      //$('#messages').append($('<li>').text(msg));
+    });
     }
 
     const user = 'johnsonjoseph' + Math.random(100).toFixed(2)
-
-    const [allChats] = React.useReducer(reducer, initialState) //takes two argument reducer function & initial state
 
     //return a context provider with a value that is going to be passed in
     //props.children we define this as a higher-order component 
