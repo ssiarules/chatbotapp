@@ -24,3 +24,7 @@ When we call a function the function may return a value. When we call a function
 We expect the function to emit the results to another function by our call.
 
 A function can return results and emit events.
+
+Additional Work
+1. factoring out Dashboard code to have stand alone components for each box and window. 
+2. Build out front end design

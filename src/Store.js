@@ -18,15 +18,13 @@ we have to retain all of our current messages while adding the new one into the 
 
 const initialState = {
     general: [
-        {from: 'Johnson', msg: 'What is the good word?'},
-        {from: 'Joseph', msg: 'What is the good word?'},
-        {from: 'ssiarules', msg: 'What is the good word?'},
+        {from: 'Bot', msg: 'Send Your First Message'},
+        
         
     ],
     topic2: [
-        {from: 'Johnson', msg: 'What is the good word?'},
-        {from: 'Joseph', msg: 'What is the good word?'},
-        {from: 'ssiarules', msg: 'What is the good word?'},
+        {from: 'Bot', msg: 'Send Your First Message'},
+        
 
     ]
 }
@@ -79,7 +77,7 @@ const [allChats, dispatch] = React.useReducer(reducer, initialState) //takes two
     });
     }
 
-    const user = 'johnsonjoseph' + Math.random(100).toFixed(2)
+    const user = 'User' + Math.random(100).toFixed(2)
 
     //return a context provider with a value that is going to be passed in
     //props.children we define this as a higher-order component 
