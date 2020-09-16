@@ -13,3 +13,14 @@ Steps
         json data that can than send out to one or more other clients who are listening.
         When this Broadcast happens all the other clients receive this message, including the one who sent it. (this will be define in your server logic.)
     5. Client receives message
+
+run no server 
+node src/server/index.js
+
+Meaning of emit: 
+In the context of web and network programming:
+
+When we call a function the function may return a value. When we call a function and the function is supposed to send those results to another function we will not user return anymore. Instead we use emit. 
+We expect the function to emit the results to another function by our call.
+
+A function can return results and emit events.

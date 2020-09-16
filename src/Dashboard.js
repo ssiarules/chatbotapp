@@ -45,7 +45,7 @@ export default function Dashboard(){
 
     // CTX store
     //dispatch allow us to trigger a reducer event
-    const [allChats] = React.useContext(CTX);
+    const {allChats, sendChatAction, user} = React.useContext(CTX);
 
     console.log({allChats});
 
@@ -98,15 +98,22 @@ export default function Dashboard(){
            
            </div>
            <div className={classes.flex} >
-
                 <TextField
                  label="Send A Chat" 
                  className={classes.chatBox}
                  value={textValue}
                  onChange={e => changeTextValue(e.target.value)}
                
-                    />       
-               <Button variant="contained" color="primary">
+            />       
+               <Button 
+               variant="contained" 
+               color="primary"
+               className={classes.button}
+               onClick={() => {
+                   sendChatAction({from: user, msg: textValue, topic: activeTopic})
+                   changeTextValue('');
+               }}
+               >
                 SEND
                </Button>
             <div className={classes.chatBox}></div>
